@@ -1,0 +1,120 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #000000;           /* Preto puro da logo */
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+.login-container {
+  max-width: 460px;
+  margin: 80px auto;
+  padding: 50px 30px;
+  background: #0a0a0a;           /* Preto ligeiramente mais claro para contraste */
+  border-radius: 20px;
+  text-align: center;
+  border: 3px solid #ffcc00;
+  box-shadow: 0 15px 40px rgba(255, 204, 0, 0.25);
+}
+
+h1 { 
+  color: #ffcc00; 
+  font-size: 2.8rem; 
+}
+
+input, select {
+  width: 100%;
+  padding: 15px;
+  margin: 12px 0;
+  background: #1a1a1a;
+  border: 2px solid #ffcc00;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+button {
+  padding: 14px 28px;
+  margin: 8px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover { 
+  transform: translateY(-3px); 
+}
+
+.new-btn { 
+  background: #ffcc00; 
+  color: black; 
+}
+
+.save-btn { 
+  background: linear-gradient(135deg, #28a745, #34c759); 
+  color: white; 
+  width: 100%; 
+  padding: 18px; 
+  font-size: 18px; 
+  margin-top: 20px;
+}
+
+header {
+  background: #000000;           /* Preto da logo */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #ffcc00;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  background: #0a0a0a;
+  flex-wrap: wrap;
+}
+
+nav button {
+  background: #1a1a1a;
+  color: #ffcc00;
+  border: 2px solid #ffcc00;
+  padding: 12px 20px;
+  border-radius: 50px;
+}
+
+.section {
+  background: #0f0f0f;
+  margin: 15px;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+.exercise-item {
+  background: #1a1a1a;
+  padding: 18px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  border-left: 6px solid #ffcc00;
+}
+
+.set-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #222222;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evo Carga</title>
+  
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffcc00">
+  <link rel="icon" href="logo.jpeg">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</head>
+<body>
+  <!-- Tela de Login -->
+  <div id="login-screen">
+    <div class="login-container">
+      <img src="logo.jpeg" alt="Evo Carga" 
+           style="max-width: 280px; height: auto; margin-bottom: 20px;">
+      <h1>Evo Carga</h1>
+      <h2>Bem-vindo</h2>
+      
+      <input type="text" id="username" placeholder="Nome do novo aluno" maxlength="30">
+      
+      <div style="margin:25px 0;">
+        <label><strong>Alunos existentes:</strong></label><br>
+        <select id="profile-select" style="width:100%; padding:14px;">
+          <option value="">-- Selecione um aluno --</option>
+        </select>
+      </div>
+
+      <button onclick="login()">Criar Novo Aluno</button>
+      <button onclick="loginWithSelectedProfile()" class="new-btn">Entrar com Selecionado</button>
+    </div>
+  </div>
+
+  <!-- App Principal -->
+  <div id="main-app" style="display:none;">
+    <header>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="logo.jpeg" alt="Logo" style="height:48px; width:auto;">
+        <h1>Evo Carga</h1>
+      </div>
+      <div>
+        <span id="current-user"></span>
+        <button onclick="logout()">Sair</button>
+      </div>
+    </header>
+
+    <nav>
+      <button onclick="showSection('log')">Registrar Treino</button>
+      <button onclick="showSection('history')">Histórico</button>
+      <button onclick="showSection('progress')">Progressão</button>
+    </nav>
+
+    <main>
+      <!-- Registrar Treino -->
+      <section id="log-section" class="section">
+        <h2>Registrar Treino</h2>
+        <input type="date" id="workout-date" style="margin-bottom:15px;">
+
+        <h3>Exercícios deste treino:</h3>
+        <div id="exercises-list"></div>
+
+        <!-- Barra de pesquisa sempre no final -->
+        <div style="margin-top:25px; padding:15px; background:#1a1a1a; border-radius:12px;">
+          <label><strong>Adicionar novo exercício:</strong></label><br>
+          <input type="text" id="exercise-search" placeholder="Digite o nome do exercício..." 
+                 style="width:100%; padding:14px;" onkeyup="filterExercises()">
+          <div id="exercise-suggestions" style="background:#222; border-radius:8px; max-height:280px; overflow:auto; display:none; margin-top:5px;"></div>
+        </div>
+
+        <button onclick="addCustomExercise()" style="margin-top:10px;">+ Exercício Personalizado</button>
+        <button onclick="saveWorkout()" class="save-btn" style="margin-top:25px;">💾 Salvar Treino Completo</button>
+      </section>
+
+      <!-- Histórico -->
+      <section id="history-section" class="section" style="display:none;">
+        <h2>Histórico de Treinos</h2>
+        <div id="history-list"></div>
+      </section>
+
+      <!-- Progressão -->
+      <section id="progress-section" class="section" style="display:none;">
+        <h2>Progressão de Carga</h2>
+        <select id="exercise-select-progress" onchange="showExerciseProgress()" style="width:100%; padding:12px; margin-bottom:15px;"></select>
+        <div id="progress-details"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
